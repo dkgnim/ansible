@@ -1,0 +1,44 @@
+company: Dreame
+  department: first
+    employee:
+      name: Olya
+        position:
+      name: Olya
+        position:
+      name: Olya
+        position:
+      name: Olya
+        position:
+      name: Dmitry
+        position:
+      name: Dmitry
+        position:
+      name: Dmitry
+        position:
+      name: Ivan
+        posiiton:
+      name: Ivan
+        position:
+                
+  department: second
+      name: Roman
+        position: lawyer
+      name: Roman
+        position: lawyer
+      name: Roman
+        position: lawyer
+      name: Roman
+        position: lawyer
+      name: Max
+        position: driver
+      name: Max
+        position: driver       
+  department: third
+      name: Olya
+        position: lawyer
+      name: Ivan
+        position: builder
+      name:   
+  department: fourth
+  department: fifth
+  department: sixth
