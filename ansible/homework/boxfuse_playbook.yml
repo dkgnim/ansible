@@ -27,7 +27,7 @@
   - name: Clone boxfuse repository
     git:
      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-     dest: /tmp
+     dest: /tmp/boxfuse-sample-java-war-hello
 
   - name: Execute the maven build command in the build directory
     command: chdir=/tmp/boxfuse-sample-java-war-hello mvn package 
