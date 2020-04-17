@@ -39,6 +39,6 @@
      dest: /opt/maven/target/exhibitor-1.6.0.jar.gz
   
   - name: Restart tomcat8
-     service: 
-      name: tomcat8
-      state: restarted
+    service: 
+     name: tomcat8
+     state: restarted
