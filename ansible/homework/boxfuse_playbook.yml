@@ -1,0 +1,44 @@
+---
+- name: install boxfuse
+  hosts: web
+  become: yes
+
+  tasks: 
+  - name: Ensure jdk package is present
+    apt:
+     name: default-jdk
+     state: present
+  
+  - name: Ensure tomcat8 package is present
+    apt:
+     name: tomcat8
+     state: present
+  
+  - name: Ensure maven package is present
+    apt:
+     name: maven
+     state: present
+
+  - name: Ensure git package is present
+    apt:
+     name: git
+     state: present
+
+  - name: Clone boxfuse repository
+    git:
+     repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+     dest: /tmp/boxfuse-sample-java-war-hello
+
+  - name: Execute the maven build command in the build directory
+    command: chdir=/tmp/boxfuse-sample-java-war-hello mvn package 
+
+  - name: Copy war file to tomcat directory
+    copy:
+     src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
+     dest: /var/lib/tomcat8/webapps/hello-1.0.war
+     remote_src: yes
+  
+  - name: Restart tomcat8
+    service: 
+     name: tomcat8
+     state: restarted
