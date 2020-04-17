@@ -20,23 +20,23 @@
      state: present
 
   - name: Create the maven build directory 
-     file:
-       path: /opt/maven
-       state: directory
+    file:
+     path: /opt/maven
+     state: directory
 
   - name: Download the pom.xml for exhibitor
-     get_url:
-       url: https://github.com/boxfuse/boxfuse-sample-java-war-hello/blob/master/pom.xml
-       dest: /opt/maven/pom.xml
-       mode: 0440
+    get_url:
+     url: https://github.com/boxfuse/boxfuse-sample-java-war-hello/blob/master/pom.xml
+     dest: /opt/maven/pom.xml
+     mode: 0440
 
   - name: Execute the maven build command in the build directory
-     command: chdir=/opt/maven mvn clean package 
+    command: chdir=/opt/maven mvn clean package 
 
   - name: Copy war file to tomcat directory
-     copy:
-       src: /opt/maven/target/hello-1.0.war
-       dest: /opt/maven/target/exhibitor-1.6.0.jar.gz
+    copy:
+     src: /opt/maven/target/hello-1.0.war
+     dest: /opt/maven/target/exhibitor-1.6.0.jar.gz
   
   - name: Restart tomcat8
      service: 
