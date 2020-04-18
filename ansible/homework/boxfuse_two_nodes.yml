@@ -33,7 +33,7 @@
      dest: /tmp/hello-1.0.war  
 
 - name: Deploy boxfuse application
-  hosts: develop
+  hosts: production
   become: yes
 
   tasks:
