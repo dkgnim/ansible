@@ -30,7 +30,8 @@
   - name: Copy war file from developer node
     fetch:
      src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
-     dest: /tmp/hello-1.0.war  
+     dest: /tmp/
+     flat: yes
 
 - name: Deploy boxfuse application
   hosts: production
@@ -50,7 +51,7 @@
   - name: Copy war file to production node
     copy:
      src: /tmp/hello-1.0.war
-     dest: /var/lib/tomcat8/webapps/hello-1.0.war
+     dest: /var/lib/tomcat8/webapps/
 
   - name: Restart tomcat8
     service: 
